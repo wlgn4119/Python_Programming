@@ -118,16 +118,29 @@ print(min(d), min(d.values()))
 
 print(sorted(d))  # ['eng', 'kor', 'mat']
 print(sorted(d.items()))  # [('eng', 80), ('kor', 90), ('mat', 85)]
+
+
 # 정렬 기준 설정하기
+# value 기준으로 정렬하기
+def key(x):
+    return x[1]
+
+
+print(dict(sorted(d.items(), key=key)))
 # lambda: 이름 없는(익명) 한 줄짜리 함수를 만듦
 # lambda 매개변수1, 매개변수2, ... : 표현식
 
+print(dict(sorted(d.items(), key=lambda x: x[1])))
+print(dict(sorted(d.items(), key=lambda x: x[1], reverse=True)))
 
 # 딕셔너리 합치기
 d2 = {"sci": 95, "prog": 100}
-
-
+# print(d + d2)
+print(d | d2)
 # 딕셔너리 반복하기
-
+# print(d * 2)
 
 # 멤버십 연산자
+print("kor" in d)
+print("art" in d)
+print(90 in d.values())
