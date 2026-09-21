@@ -39,7 +39,7 @@ langs.sort(reverse=True)
 print(langs)
 
 # 모든 item 삭제
-
+langs.clear()
 print(langs)
 
 # 리스트 복사
@@ -83,8 +83,8 @@ print(*num)
 a, b, c, d = num
 print(a, b, c, d)
 
-a, *b = num
-print(a, b)
+a, *b, c = num
+print(a, b, c)
 
 num2 = [5, 6]
 print(num + num2)
@@ -117,10 +117,10 @@ print(list("python"))
 # ===========================================================
 
 # 1 ~ 10의 제곱수 리스트 만들기
-# result = []
-# for x in range(1, 11):
-#     result.append(x**2)
-# print(result)
+result = []
+for x in range(1, 11):
+    result.append(x**2)
+print(result)
 
 result = [x**2 for x in range(1, 11)]
 print(result)
@@ -138,9 +138,13 @@ result = [len(n) for n in name]
 print(result)
 # 길이가 5 이상인 이름만 뽑기
 result = [n for n in name if len(n) >= 5]
-
+print(result)
 # 중첩 for문도 가능
-
+# x = 0 1 2
+# y = 0 1 2
+# x * y로 리스트 만들기
+result = [x * y for x in range(3) for y in range(3)]
+print(result)
 
 # =========================================================
 #  🔥 실습 문제
@@ -182,3 +186,18 @@ scores = [
 
 result = [sum(scores[i]) / 3 for i in range(3)]
 print(result)  # ✅ [90.0, 80.0, 70.0]
+
+
+std1 = scores[0]
+std2 = scores[1]
+std3 = scores[2]
+
+result = [sum(score) / len(score) for score in zip(std1, std2, std3)]
+result = [sum(score) / len(score) for score in zip(*scores)]
+result = [round(sum(score) / len(score), 2) for score in zip(*scores)]
+print(result)  # ✅ [90.0, 80.0, 70.0]
+
+print(round(0.5))
+print(round(1.5))
+print(round(2.5))
+print(round(3.5))

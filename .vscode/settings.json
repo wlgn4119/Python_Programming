@@ -2,5 +2,12 @@
     "[python]" : {
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true
-    }
+    },
+    "python-envs.pythonProjects": [
+        {
+            "path": "04_collection/ex7.py",
+            "envManager": "ms-python.python:venv",
+            "packageManager": "ms-python.python:pip"
+        }
+    ]
 }
